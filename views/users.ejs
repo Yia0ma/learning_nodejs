@@ -2,5 +2,11 @@
 </head>
 <body>
     <%- include("includes/header.ejs"); %>
-    <h1>Users</h1>
+    <% if (users.length > 0) { %>
+        <% for (let user of users) { %>
+            <div><%= user %></div>
+        <% } %>
+    <% } else { %>
+        <h1>No users found...</h1>;
+    <% } %>
 <%- include("includes/bottom.ejs"); %>

@@ -1,19 +1,20 @@
 const path = require("path");
 
 const express = require("express");
+const bodyParser = require("body-parser");
 
 const app = express();
 
 const homeRouter = require("./routes/home");
-const userRouter = require("./routes/users");
+const usersRouter = require("./routes/users");
 
 app.set("view engine", "ejs");
 app.set("views", "views");
 
-app.use("/", homeRouter);
-app.use("/users", userRouter);
-
-// Include static directory.
 app.use(express.static(path.join(__dirname, "public")));
+app.use(bodyParser.urlencoded({ extended: false}));
+
+app.use("/", homeRouter);
+app.use("/users", usersRouter);
 
 app.listen(3000);

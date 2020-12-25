@@ -3,4 +3,9 @@
 <body>
     <%- include("includes/header.ejs"); %>
     <h1>Home</h1>
+    <form action="/users/add-user" method="POST">
+        <label for="user">New User:</label>
+        <input type="text" name="user">
+        <button>Submit</button>
+    </form>
 <%- include("includes/bottom.ejs"); %>
